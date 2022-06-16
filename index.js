@@ -39,7 +39,6 @@ const generateErr = (message, code) => ({
 });
 
 app.post("/submit-user", (req, res) => {
-  console.log("req = ", req.body);
   const { discordName, walletId, magicCode } = req.body;
   Codes.findOneAndUpdate(
     { code: magicCode },
