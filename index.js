@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -7,21 +8,17 @@ const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
 };
-const atlasPassword = "7361LmS81270434";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
-mongoose.connect(
-  `mongodb+srv://little-magic-school:${atlasPassword}@cluster0.lfalrwo.mongodb.net/littlemagicschool?retryWrites=true&w=majority
-`,
-  (err) => {
-    if (err) console.log("MongoDB connection error: ", err);
-    else console.log("MongoDB is connected.");
-  }
-);
+console.log("check env = ", process.env.NODE_ENV);
+mongoose.connect(process.env.MONGODB_ATLAS, (err) => {
+  if (err) console.log("MongoDB connection error: ", err);
+  else console.log("MongoDB is connected.");
+});
 
 const userSchema = new mongoose.Schema({
   discordName: { type: String, required: true },
