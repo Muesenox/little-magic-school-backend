@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://little-magic-school-frontend.web.app",
   optionsSuccessStatus: 200,
 };
 
