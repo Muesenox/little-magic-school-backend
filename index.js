@@ -64,6 +64,6 @@ app.post("/submit-user", (req, res) => {
   );
 });
 
-app.listen(8000, () => {
-  console.log("Server listening to port 8000");
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening to port ${process.env.PORT}`);
 });
