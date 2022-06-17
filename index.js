@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
-console.log("check env = ", process.env.NODE_ENV);
 mongoose.connect(process.env.MONGODB_ATLAS, (err) => {
   if (err) console.log("MongoDB connection error: ", err);
   else console.log("MongoDB is connected.");
